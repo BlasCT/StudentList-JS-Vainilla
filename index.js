@@ -7,6 +7,13 @@ const fragment = document.createDocumentFragment();
 
 let students = {};
 
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("students")) {
+    students = JSON.parse(localStorage.getItem("students"));
+  }
+  addEstudent();
+});
+
 studentForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -29,6 +36,8 @@ studentList.addEventListener("click", (event) => {
 });
 
 const addEstudent = () => {
+  localStorage.setItem("students", JSON.stringify(students));
+
   if (Object.values(students).length === 0) {
     studentList.innerHTML = `¡No hay Registros! 😎`;
     return;
