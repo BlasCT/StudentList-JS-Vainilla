@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Student List</h1>
+      <form id="studentForm" class="student_card student_form">
+        <label for="name">
+          <span>Nombre</span>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Escribe tu Nombre"
+            autofocus
+            required
+          />
+        </label>
+        <label for="name">
+          <span>Ciudad</span>
+          <input
+            id="city"
+            name="city"
+            type="text"
+            placeholder="Escribe tu Ciudad"
+            required
+          />
+        </label>
+        <!--Recuerda hidden es para que se mantenga oculto-->
+        <input type="hidden" id="studentId" value="" />
+        <button type="submit">Guardar</button>
+        <button type="reset">Limpiar</button>
+      </form>
+      <div id="studentList" class="student_list student_card">
+        ¡No hay Registros! 😎
+      </div>
+    </div>
+    <template>
+      <div class="student_row">
+        <img
+          width="48"
+          height="48"
+          src="https://source.boringavatars.com/beam"
+          alt=""
+        />
+        <div class="student_name">${element.name}</div>
+        <div class="student_city">${element.city}</div>
+        <div class="student_buttons">
+          <button class="edit">✏️</button>
+          <button class="delet">❌</button>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>
